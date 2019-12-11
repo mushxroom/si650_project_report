@@ -5,6 +5,7 @@
  
 \usepackage{multicol}
 \usepackage{url}
+\usepackage{amsmath}
 
 \usepackage[letterpaper,  margin=1in]{geometry}
 
@@ -59,6 +60,13 @@
     \subsection{Model}
 
     We tried several models and observed their performances to choose the best one. The score function in final model we used is BM25+ function (Inspiration from \url{https://www.eecis.udel.edu/~ypeilin/pub/ictir2016_long.pdf)} which is :
+
+    {
+    \tiny
+    $$
+        S = \sum_{t \in q} \frac{\left(k_{3}+1\right) \cdot c_{t}^{q}}{k_{3}+c_{t}^{q}} \cdot\left[\frac{\left(k_{1}+1\right) \\ \cdot c_{t}^{d}}{c_{t}^{d}+k_{1} \cdot\left(1-b+b \cdot \frac{l_{d}}{L}\right)}+\delta\right] \cdot \ln \left(\frac{N+1}{N_{t}}\right)
+    $$
+    }
 
 
     This BM25+ function add two more parameters to change the weight of TF and IDF in the function and it make our performance better in our test query set.
